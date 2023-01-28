@@ -1,0 +1,31 @@
+.searchBar {
+  padding: 8px;
+  margin: 8px;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 0 2px gray;
+  transition: 0.3s;
+}
+
+.searchBar:focus {
+  box-shadow: 0 0 10px gray;
+}
+
+.searchButton {
+  padding: 8px 16px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 0;
+}
+
+.listItem {
+  padding: '8px 0';
+  text-shadow: 0 0 20px gray;
+  transition: 0.4s;
+}
+
+.listItem:hover {
+  text-decoration: line-through;
+  font-size: 24px;
+}
