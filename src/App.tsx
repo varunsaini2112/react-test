@@ -1,15 +1,12 @@
 import './App.css';
-import { SearchFilter } from './app/screens';
+import { UserForm } from './app/screens';
 
 const App = () => {
-
-	return (
-		<div className="App">
-			<SearchFilter />
-		</div>
-	);
-
-	
+  return (
+    <div className="App">
+      <UserForm />
+    </div>
+  );
 };
 
 export default App;
