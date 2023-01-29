@@ -1,7 +1,7 @@
 .searchBar {
-  padding: 8px;
-  margin: 8px;
-  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
   outline: 0;
   border: 0;
   box-shadow: 0 0 2px gray;
@@ -9,23 +9,23 @@
 }
 
 .searchBar:focus {
-  box-shadow: 0 0 10px gray;
+  box-shadow: 0 0 0.5rem gray;
 }
 
 .searchButton {
-  padding: 8px 16px;
-  margin: 8px;
-  border-radius: 5px;
+  padding: 0.5rem 16px;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
   border: 0;
 }
 
 .listItem {
-  padding: '8px 0';
-  text-shadow: 0 0 20px gray;
+  padding: 0.5rem 0;
+  text-shadow: 0 0 1rem gray;
   transition: 0.4s;
 }
 
 .listItem:hover {
   text-decoration: line-through;
-  font-size: 24px;
+  font-size: 2rem;
 }
