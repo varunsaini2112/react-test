@@ -1,0 +1,67 @@
+.mainHeading {
+  font-size: 2rem;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+
+  .inputLabel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+    position: relative;
+    transition: 1s;
+
+    .labelText {
+      width: 7rem;
+    }
+    .errorText {
+      font-size: 0.75rem;
+      color: red;
+      position: absolute;
+      top: calc(100% - 0.5rem);
+      right: 0;
+    }
+
+    input {
+      padding: 0.5rem;
+      outline: none;
+      border-radius: 0.25rem;
+      border: 0;
+      box-shadow: 0 0 5px gray;
+      width: 14rem;
+      background-color: white;
+      transition: 1s;
+
+      color: rgb(101, 101, 101);
+    }
+  }
+}
+
+.button {
+  padding: 0.75rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 1.25rem;
+  background-color: chocolate;
+  box-shadow: 0 0 0.5rem chocolate;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.button:focus {
+  box-shadow: 0 0 2rem chocolate;
+  transform: translateY(0.125rem);
+}
+
+.button:disabled {
+  background-color: rgba(210, 105, 30, 0.471);
+}
