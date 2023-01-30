@@ -91,4 +91,58 @@ describe('User Form Functionality', () => {
 
     expect(errorMessage).toHaveTextContent('');
   });
+
+  it('should render required error message on last name inputField', () => {
+    render(<UserForm />);
+
+    const lastNameInput = screen.getByLabelText('Last name');
+    userEvent.type(lastNameInput, 'S');
+    userEvent.clear(lastNameInput);
+
+    expect(screen.getByText('Last name is required')).toBeInTheDocument();
+  });
+
+  it('should render minimum length error message on last name inputField', () => {
+    render(<UserForm />);
+
+    const lastNameInput = screen.getByLabelText('Last name');
+    userEvent.type(lastNameInput, 'V');
+
+    expect(
+      screen.getByText('Last name should be 2 or more characters')
+    ).toBeInTheDocument();
+  });
+
+  it('should render maximum length error message on last name inputField', () => {
+    render(<UserForm />);
+
+    const lastNameInput = screen.getByLabelText('Last name');
+    userEvent.type(
+      lastNameInput,
+      'this is a long length string to test the length error on the input field'
+    );
+
+    expect(screen.getByText('Max length reached!')).toBeInTheDocument();
+  });
+
+  it('should render pattern error message on last name inputField', () => {
+    render(<UserForm />);
+
+    const lastNameInput = screen.getByLabelText('Last name');
+    userEvent.type(lastNameInput, '123V');
+
+    expect(
+      screen.getByText('Last name not in correct format')
+    ).toBeInTheDocument();
+  });
+
+  it('should not render error message on correct format last name', () => {
+    render(<UserForm />);
+
+    const lastNameInput = screen.getByLabelText('Last name');
+    userEvent.type(lastNameInput, 'Varun');
+    const errorMessage = lastNameInput.nextSibling;
+
+    expect(errorMessage).toHaveTextContent('');
+  });
 });
