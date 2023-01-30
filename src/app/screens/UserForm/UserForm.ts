@@ -1,16 +1,9 @@
 import moment from 'moment';
 import React, { FormEvent, useMemo, useState } from 'react';
 import { REGEX } from '../../lib/appConstants';
+import { checkValidations } from '../../lib/helper';
 import renderTemplate from './template';
-import {
-  DataToSend,
-  FormData,
-  InputFieldProps,
-  LengthValidation,
-  RegexValidation,
-  RequiredValidation,
-  Validations,
-} from './types';
+import { DataToSend, FormData, InputFieldProps } from './types';
 
 const formFields: InputFieldProps[] = [
   {
@@ -161,49 +154,6 @@ const UserForm: React.FC = () => {
     });
 
     console.log('formData>>>', tempFormData, formData);
-  }
-
-  function checkValidations(value: string, validations?: Validations) {
-    if (!validations) return '';
-    let error = '';
-
-    if (validations?.required)
-      error = validateRequire(value, validations.required);
-
-    if (!error && validations?.pattern)
-      error = validateRegex(value, validations.pattern);
-
-    if (!error && validations?.minLength)
-      error = validateMinLength(value, validations.minLength);
-
-    if (!error && validations?.maxLength)
-      error = validateMaxLength(value, validations.maxLength);
-
-    return error;
-  }
-
-  function validateRequire(text: string, validations: RequiredValidation) {
-    const { value, message } = validations;
-    if (value && !text) return message;
-    return '';
-  }
-
-  function validateMinLength(text: string, validations: LengthValidation) {
-    const { value, message } = validations;
-    if (text.length < value) return message;
-    return '';
-  }
-
-  function validateMaxLength(text: string, validations: LengthValidation) {
-    const { value, message } = validations;
-    if (text.length > value) return message;
-    return '';
-  }
-
-  function validateRegex(text: string, validations: RegexValidation) {
-    const { value, message } = validations;
-    if (!value.test(text)) return message;
-    return '';
   }
 
   return renderTemplate({
