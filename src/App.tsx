@@ -1,10 +1,10 @@
 import './App.css';
-import { UserForm } from './app/screens';
+import { RestApi } from './app/screens';
 
 const App = () => {
   return (
     <div className="App">
-      <UserForm />
+      <RestApi />
     </div>
   );
 };
