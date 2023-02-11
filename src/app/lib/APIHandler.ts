@@ -1,6 +1,4 @@
-import { apiMethods } from './libTypes';
-
-function fetchWrapper(url: string, method?: apiMethods, body?: any) {
+function APIHandler(url: string) {
   return new Promise<any>((resolve, reject) => {
     fetch(url)
       .then((response) => response.json())
@@ -9,4 +7,4 @@ function fetchWrapper(url: string, method?: apiMethods, body?: any) {
   });
 }
 
-export default fetchWrapper;
+export default APIHandler;
