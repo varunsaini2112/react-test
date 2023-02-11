@@ -3,10 +3,14 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+const crypto = require('crypto');
 
-// jest.mock('crypto', () => ({
-//   randomUUID: jest.fn(() => Math.random().toString(16)),
-// }));
+Object.defineProperty(globalThis, 'crypto', {
+  value: {
+    randomUUID: () => crypto.randomUUID(),
+  },
+});
+
 
 // src/setupTests.ts
 import { server } from './app/mocks/server';
