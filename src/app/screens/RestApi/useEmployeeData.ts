@@ -1,20 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { employeeData } from '../../lib/apiUrls';
-import  fetchWrapper  from '../../lib/fetchWrapper';
+import APIHandler from '../../lib/APIHandler';
+import { Employee } from './types';
 
 const useEmployeeData = (id: number) => {
   const [userId, setUserId] = useState<number>(id);
-  const [data, setData] = useState({});
+  const [data, setData] = useState<Employee>();
 
-  useEffect(() => console.log('data>>>', data), [data]);
-
-  useEffect(() => {
-    fetchWrapper(`${employeeData}/${userId}`)
+  const getEmployeeData = useCallback(() => {
+    APIHandler(`${employeeData}/${userId}`)
       .then((json) => setData(json))
       .catch((error) => console.log('error>>>', error));
   }, [userId]);
 
-  return [data, setUserId];
+  useEffect(() => {
+    getEmployeeData();
+  }, [getEmployeeData]);
+
+  return { data, setUserId };
 };
 
 export default useEmployeeData;
