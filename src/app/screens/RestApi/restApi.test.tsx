@@ -1,17 +1,19 @@
-import { act, render } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import RestApi from './restApi';
-import fetchWrapper from '../../lib/fetchWrapper';
-
-jest.mock('../../lib/fetchWrapper', () =>
-  jest.fn(() => Promise.resolve({ data: 'mocked data' }))
-);
 
 describe('restApi render', () => {
-  it('Testing employeeData api', () => {
+  it('Testing employeeData api', async () => {
     render(<RestApi />);
 
-    // fetchWrapper.mockImplementation(() => Promise.resolve({ data: 'heelo' }));
+    await waitFor(() => {
+      expect(screen.getByText('Name: Varun')).toBeInTheDocument();
+    });
 
-    expect(fetch).toHaveBeenCalled();
+    userEvent.click(screen.getByText('Another user'));
+
+    await waitFor(() => {
+      expect(screen.getByText('Name: Varun')).toBeInTheDocument();
+    });
   });
 });
