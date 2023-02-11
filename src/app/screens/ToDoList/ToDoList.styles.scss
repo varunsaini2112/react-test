@@ -1,0 +1,87 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+
+  .subContainer {
+    box-shadow: 0 0 10rem blue;
+    border-radius: 2rem;
+    display: flex;
+    min-height: 40%;
+    min-width: 40%;
+    flex-direction: column;
+    padding: 1rem;
+    transition: 0.4s;
+
+    .headerText {
+      font-size: 2rem;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .inputFieldContainer {
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+
+      .inputField {
+        flex: 1;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        outline: 0;
+        border: 0;
+        box-shadow: 0 0 0.25rem gray;
+      }
+
+      .addTaskButton {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        color: white;
+        background-color: rgb(255, 31, 31);
+        border: 0;
+        box-shadow: 0 0 0.25rem gray;
+        margin-left: 1rem;
+        transition: 0.5s;
+      }
+
+      .addTaskButton:active {
+        transform: translateY(0.25rem);
+      }
+
+      .addTaskButton:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+    }
+
+    .emptyMessageContainer {
+      text-shadow: 0 0 1rem gray;
+      padding: 1rem 0;
+    }
+
+    .listItemContainer {
+      display: flex;
+      flex-direction: row;
+      text-shadow: 0 0 1rem gray;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      border-radius: 2rem;
+      transition: 0.4s;
+
+      div {
+        color: rgb(97, 116, 107);
+        padding: 0 0.25rem;
+        transition: 0.4s;
+      }
+    }
+
+    .listItemContainer:hover {
+      background-color: rgb(207, 207, 207);
+
+      div {
+        color: black;
+      }
+    }
+  }
+}

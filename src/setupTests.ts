@@ -4,6 +4,10 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
+// jest.mock('crypto', () => ({
+//   randomUUID: jest.fn(() => Math.random().toString(16)),
+// }));
+
 // src/setupTests.ts
 import { server } from './app/mocks/server';
 // Establish API mocking before all tests.
