@@ -48,11 +48,8 @@ function checkValidations(value: string, validations?: Validations) {
   return error;
 }
 
-function generateId(){
-  // return crypto.randomUUID(); 
-  // TO BE USED WHEN I KNOW HOW TO MOCK crypto MODULE
-
-  return Math.random().toString(16);
+function generateId() {
+  return crypto.randomUUID();
 }
 
 export { checkValidations, generateId };
