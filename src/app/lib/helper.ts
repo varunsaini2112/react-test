@@ -49,7 +49,8 @@ function checkValidations(value: string, validations?: Validations) {
 }
 
 function generateId(){
-  // return crypto.randomUUID(); TO BE USED WHEN I KNOW HOW TO MOCK crypto MODULE
+  // return crypto.randomUUID(); 
+  // TO BE USED WHEN I KNOW HOW TO MOCK crypto MODULE
 
   return Math.random().toString(16);
 }
