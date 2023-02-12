@@ -7,12 +7,9 @@ const ToDoList: React.FC = () => {
   const [list, setList] = useState<Task[]>([]);
   const [task, setTask] = useState<Task>({ value: '', status: 'ToDo', id: '' });
 
-  const disabled = useMemo(() => !task.value, [task]);
+  const disabled = useMemo(() => !task.value.trim(), [task]);
 
   const onPressAddButton = () => {
-    const { value } = task;
-    if (!value.trim()) return;
-
     const newItem = { ...task, id: generateId() };
     setList([...list, newItem]);
     setTask({ value: '', status: 'ToDo', id: '' });
