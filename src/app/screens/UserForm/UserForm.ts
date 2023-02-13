@@ -123,12 +123,9 @@ const UserForm: React.FC = () => {
   });
 
   const disableSubmit = useMemo(() => {
-    let disable = false;
-    Object.keys(formData).forEach((inputField) => {
-      if (formData[inputField].isInvalid) disable = true;
-    });
-
-    return disable;
+    return !Object.keys(formData).every(
+      (inputField) => !formData[inputField].isInvalid
+    );
   }, [formData]);
 
   function onFormFieldChange(
